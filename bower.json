@@ -1,0 +1,16 @@
+{
+  "name": "num-str-to-words",
+  "description": "Convert integers to words",
+  "authors": [
+    "DM Kishi <dm.kishi@gmail.com>"
+  ],
+  "homepage": "https://bitbucket.org/nasa-ae/num-str-to-words",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
