@@ -9,10 +9,10 @@ Modified from <http://stackoverflow.com/questions/14766951/convert-digits-into-w
 ## Flavors
 - **numToWords**
   - Usage:
-    ```javascript
-    var words = numToWords(123);
-    console.log(words); // "one hundred twenty-three"
-    ```
+```javascript
+var words = numToWords(123);
+console.log(words); // "one hundred twenty-three"
+```
 - **makeNumStrToWordsHP** (High Performance)
   - You don't need this, just use `numToWords()`.
   - Details:
@@ -20,14 +20,14 @@ Modified from <http://stackoverflow.com/questions/14766951/convert-digits-into-w
     - Further performance tweaks rely on the argument number pre-converted to a string.
     - No error checking.
   - Usage:
-    ```javascript
-    var numToWordsHP = makeNumToWordsHP();
-    var words = numToWordsHP('123'); // NOTE: Argument is quoted.
-    console.log(words); // "one hundred twenty-three"
-    ```
+```javascript
+var numToWordsHP = makeNumToWordsHP();
+var words = numToWordsHP('123'); // NOTE: Argument is quoted.
+console.log(words); // "one hundred twenty-three"
+```
 - **numToJP** and **makeNumStrToJPHP**
   - Same as above but returns in Japanese.
   - Usage:
-    ```javascript
-    console.log(numToJP(123)); // "百二十三"
-    ```
+```javascript
+console.log(numToJP(123)); // "百二十三"
+```
