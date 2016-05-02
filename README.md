@@ -1,6 +1,6 @@
 # numToWords
 
-Converts integers to words, with several flavors.
+Convert integers to words, with several flavors.
 
 Supports integers from 0 to 999,999,999,999,999,999,999,999,999,999,999, or to the [short scale](https://en.wikipedia.org/wiki/Long_and_short_scales) of nonillion (10<sup>30</sup>).
 

@@ -1,7 +1,7 @@
 {
   "name": "num-to-words",
   "version": "1.0.0",
-  "description": "Converts integers to words, with several flavors.",
+  "description": "Convert integers to words, with several flavors.",
   "main": "dist/numToWords.js",
   "dependencies": {},
   "devDependencies": {
