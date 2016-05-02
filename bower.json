@@ -1,7 +1,7 @@
 {
   "name": "numToWords",
   "description": "Converts integers to words, with several flavors.",
-  "keywords": ["js"],
+  "keywords": ["js", "japanese", "number", "integer"],
   "main": "dist/numToWords.js",
   "private": true,
   "ignore": [
