@@ -4,9 +4,10 @@ var jshint = require('gulp-jshint');
 var rename = require('gulp-rename');
 var uglify = require('gulp-uglify');
 
-var SRC     = 'src/*.js';
-var NAME    = require('./bower.json').name;
-var VERSION = require('./src/VERSION.json').version;
+var SRC = 'src/*.js';
+var NAME        = require('./bower.json').name;
+var DESCRIPTION = require('./bower.json').description;
+var VERSION     = require('./src/VERSION.json').version;
 
 
 gulp.task('default', () => {
@@ -23,7 +24,9 @@ gulp.task('jshint', () => {
 // version, and date, then make an minified version and rename.
 gulp.task('build', () => {
   var iso8601 = (new Date()).toISOString();
-  var license = `// ${NAME} v${VERSION} (${iso8601})\n`;
+  var license = `// ${NAME} v${VERSION} (${iso8601})\n` +
+                `// ${DESCRIPTION}\n` +
+                '\n';
 
   return gulp.src(SRC)
     .pipe(insert.prepend(license))

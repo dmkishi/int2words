@@ -1,4 +1,6 @@
-// numToWords v1.0.0 (2016-05-02T18:52:44.531Z)
+// numToWords v1.2.0 (2016-05-02T19:31:50.719Z)
+// Convert integers to words, with several flavors.
+
 function numToWords(int) {
   var ONES = ['','one','two','three','four','five','six','seven','eight','nine',
               'ten','eleven','twelve','thirteen','fourteen','fifteen','sixteen',
