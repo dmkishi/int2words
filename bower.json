@@ -5,6 +5,9 @@
   "main": "dist/numToWords.js",
   "private": true,
   "ignore": [
+    ".jshintrc",
+    "gulpfile.js",
+    "source",
     "**/.*",
     "node_modules",
     "bower_components",
