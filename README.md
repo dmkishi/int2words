@@ -13,7 +13,6 @@ Modified from <http://stackoverflow.com/questions/14766951/convert-digits-into-w
     var words = numToWords(123);
     console.log(words); // "one hundred twenty-three"
     ```
-- **numToWordsJP** (Japanese)
 - **makeNumToWordsHP** (High Performance)
   - You don't need this, just use `numToWords()`.
   - Details:
@@ -26,5 +25,9 @@ Modified from <http://stackoverflow.com/questions/14766951/convert-digits-into-w
     var words = numToWordsHP('123'); // NOTE: Argument is quoted.
     console.log(words); // "one hundred twenty-three"
     ```
-- **makeNumToWordsHPJP** (High Performance, Japanese)
-  - Same as `makeNumToWordsHP()` but in Japanese.
+- **numToWordsJP** and **makeNumToWordsHPJP**
+  - Same as above but Japanese.
+  - Usage:
+    ```javascript
+    console.log(numToWordsJP(123)); // "百二十三"
+    ```
