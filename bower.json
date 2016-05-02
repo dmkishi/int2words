@@ -5,13 +5,15 @@
   "main": "dist/numToWords.js",
   "private": true,
   "ignore": [
-    ".jshintrc",
-    "gulpfile.js",
-    "source",
     "**/.*",
+    ".gitignore",
     "node_modules",
     "bower_components",
     "test",
-    "tests"
+    "tests",
+    ".jshintrc",
+    "gulpfile.js",
+    "package.json",
+    "source"
   ]
 }
