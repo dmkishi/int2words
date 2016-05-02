@@ -50,7 +50,7 @@ function numToWordsJP(int) {
   }
 
   var isInt = (Number(int) === int && int % 1 === 0);
-  if (!isInt) throw new Error('Arugment is not an integer.');
+  if (!isInt) throw new Error('Argument is not an integer.');
   var strInt = String(int);
 
   return iter('', 0, getFirstQuad(strInt), getRemainingQuads(strInt));
