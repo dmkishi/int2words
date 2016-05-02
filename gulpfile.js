@@ -4,7 +4,7 @@ var jshint = require('gulp-jshint');
 var rename = require('gulp-rename');
 var uglify = require('gulp-uglify');
 
-var SRC = 'src/*.js';
+var SRC         = 'src/*.js';
 var NAME        = require('./bower.json').name;
 var DESCRIPTION = require('./bower.json').description;
 var VERSION     = require('./src/VERSION.json').version;
