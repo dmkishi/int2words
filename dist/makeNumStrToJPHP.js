@@ -1,3 +1,4 @@
+// numToWords v1.0.0 (2016-05-02T18:52:44.531Z)
 function makeNumStrToJPHP() {
   var DIGITS = ['','一','二','三','四','五','六','七','八','九'];
   var SCALE = ['','万','億','兆','京','垓','𥝱','穣'];

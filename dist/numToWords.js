@@ -1,3 +1,4 @@
+// numToWords v1.0.0 (2016-05-02T18:52:44.531Z)
 function numToWords(int) {
   var ONES = ['','one','two','three','four','five','six','seven','eight','nine',
               'ten','eleven','twelve','thirteen','fourteen','fifteen','sixteen',
