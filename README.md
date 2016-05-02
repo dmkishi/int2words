@@ -25,9 +25,9 @@ Modified from <http://stackoverflow.com/questions/14766951/convert-digits-into-w
     var words = numToWordsHP('123'); // NOTE: Argument is quoted.
     console.log(words); // "one hundred twenty-three"
     ```
-- **numToWordsJP** and **makeNumStrToWordsHPJP**
+- **numToJP** and **makeNumStrToJPHP**
   - Same as above but returns in Japanese.
   - Usage:
     ```javascript
-    console.log(numToWordsJP(123)); // "百二十三"
+    console.log(numToJP(123)); // "百二十三"
     ```
