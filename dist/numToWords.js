@@ -22,7 +22,7 @@ function numToWords(int) {
   }
 
   // Return a triplet as words.
-  // Ex. "123" → "one hundred twenty-three"
+  // Ex. 123 → "one hundred twenty-three"
   function getTripletWords(digit3, digit2, digit1) {
     return (digit3 == '0' ? ''           : ONES[digit3] + ' hundred ') +
            (digit1 == '0' ? TENS[digit2] : TENS[digit2] && TENS[digit2] + '-' || '') +
@@ -37,7 +37,8 @@ function numToWords(int) {
   }
 
   function iter(words, i, first, remainder) {
-    if (first == '000' && remainder.length === 0) return words;
+    if (first == '0000' && remainder.length === 0)
+      return i == 0 ? 'zero' : words;
     return iter(
       addToWords(words, getTripletWords(first[0], first[1], first[2]), SCALE[i]),
       ++i,
