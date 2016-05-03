@@ -1,4 +1,4 @@
-// numToWords v1.2.0 (2016-05-03T18:11:11.251Z)
+// numToWords v1.2.0 (2016-05-03T18:12:59.465Z)
 // Convert integers to words, with several flavors.
 
 function numToJP(int) {

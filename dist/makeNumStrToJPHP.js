@@ -1,4 +1,4 @@
-// numToWords v1.2.0 (2016-05-03T18:11:11.251Z)
+// numToWords v1.2.0 (2016-05-03T18:12:59.465Z)
 // Convert integers to words, with several flavors.
 
 function makeNumStrToJPHP() {
@@ -51,10 +51,6 @@ function makeNumStrToJPHP() {
       getRemainingQuads(remainder)
     );
   }
-
-  var isInt = (Number(int) === int && int % 1 === 0);
-  if (!isInt) throw new Error('Argument is not an integer.');
-  var strInt = String(int);
 
   return function(strInt) {
     return iter('', 0, getFirstQuad(strInt), getRemainingQuads(strInt));
