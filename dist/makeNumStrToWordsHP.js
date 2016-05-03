@@ -1,4 +1,4 @@
-// numToWords v1.2.0 (2016-05-02T19:31:50.719Z)
+// numToWords v1.2.0 (2016-05-03T18:11:11.251Z)
 // Convert integers to words, with several flavors.
 
 function makeNumStrToWordsHP() {
