@@ -1,6 +1,8 @@
-// numToWords v1.2.6 (2016-05-04T16:06:35.270Z)
-// Convert integers to words, with several flavors.
-// <https://github.com/dmkishi/numToWords>
+/* numToWords v1.2.7 (2016-05-04T18:40:06.610Z)
+ * Convert integers to words, with several flavors.
+ * <https://github.com/dmkishi/numToWords>
+ */
+
 function numToJP(int) {
   var DIGITS = ['','一','二','三','四','五','六','七','八','九'];
   var SCALE = ['','万','億','兆','京','垓','𥝱','穣'];

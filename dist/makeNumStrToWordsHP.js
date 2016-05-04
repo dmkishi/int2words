@@ -1,6 +1,8 @@
-// numToWords v1.2.6 (2016-05-04T16:06:35.270Z)
-// Convert integers to words, with several flavors.
-// <https://github.com/dmkishi/numToWords>
+/* numToWords v1.2.7 (2016-05-04T18:40:06.610Z)
+ * Convert integers to words, with several flavors.
+ * <https://github.com/dmkishi/numToWords>
+ */
+
 function makeNumStrToWordsHP() {
   var ONES = ['','one','two','three','four','five','six','seven','eight','nine',
               'ten','eleven','twelve','thirteen','fourteen','fifteen','sixteen',
