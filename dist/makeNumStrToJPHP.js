@@ -1,6 +1,6 @@
-// numToWords v1.2.0 (2016-05-03T18:12:59.465Z)
+// numToWords v1.2.6 (2016-05-04T16:06:35.270Z)
 // Convert integers to words, with several flavors.
-
+// <https://github.com/dmkishi/numToWords>
 function makeNumStrToJPHP() {
   var DIGITS = ['','一','二','三','四','五','六','七','八','九'];
   var SCALE = ['','万','億','兆','京','垓','𥝱','穣'];

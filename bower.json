@@ -1,8 +1,9 @@
 {
   "name": "numToWords",
   "description": "Convert integers to words, with several flavors.",
+  "homepage": "https://github.com/dmkishi/numToWords",
   "keywords": ["js", "japanese", "number", "integer"],
-  "main": "dist/numToWords.js",
+  "moduleType": ["globals"],
   "private": true,
   "ignore": [
     "**/.*",

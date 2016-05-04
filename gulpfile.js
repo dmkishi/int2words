@@ -6,8 +6,9 @@ var uglify = require('gulp-uglify');
 
 var SRC         = 'src/*.js';
 var NAME        = require('./bower.json').name;
+var VERSION     = require('./VERSION.json').version;
 var DESCRIPTION = require('./bower.json').description;
-var VERSION     = require('./src/VERSION.json').version;
+var HOMEPAGE    = require('./bower.json').homepage;
 
 
 gulp.task('default', () => {
@@ -26,6 +27,7 @@ gulp.task('build', () => {
   var iso8601 = (new Date()).toISOString();
   var license = `// ${NAME} v${VERSION} (${iso8601})\n` +
                 `// ${DESCRIPTION}\n` +
+                `// <${HOMEPAGE}>\n`
                 '\n';
 
   return gulp.src(SRC)
