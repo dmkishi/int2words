@@ -46,7 +46,7 @@ function iter(numerals: string, cumulativeQuadWords: string = '', index: number 
   return iter(remainingNumerals, newCumulativeQuadWords, newIndex);
 }
 
-function isAllZeroQuad(quad: Quad) {
+function isAllZeroQuad(quad: Quad): boolean {
   if (quad[0] !== '0') return false;
   if (quad[1] !== '0') return false;
   if (quad[2] !== '0') return false;
