@@ -13,8 +13,10 @@ type Quad = [string, string, string, string];
  * - 0 → "零"
  */
 export default function num2Jp(integer: number): string {
-  if (!Number.isInteger(integer)) throw new Error('Invalid argument: expected an integer.');
-  if (integer < 0) throw new Error('Invalid argument: expected a positive integer.');
+  if (!Number.isInteger(integer))
+    throw new Error('Invalid argument: expected an integer.');
+  if (integer < 0)
+    throw new Error('Invalid argument: expected a positive integer.');
   return iter(String(integer));
 }
 
@@ -26,11 +28,10 @@ export default function num2Jp(integer: number): string {
 function iter(numerals: string, cumulativeQuadWords: string = '', index: number = 0): string {
   const [quad, remainingNumerals] = split(numerals);
   if (isAllZeroQuad(quad) && remainingNumerals.length === 0) {
-    if (index === 0) {
+    if (index === 0)
       return '零';
-    } else {
+    else
       return cumulativeQuadWords;
-    }
   }
   const newQuadWords = getQuadWords(quad);
   const newCumulativeQuadWords = addQuadWords(newQuadWords, cumulativeQuadWords, index);
