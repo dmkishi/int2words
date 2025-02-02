@@ -5,12 +5,20 @@ const LARGE_POWER = ['', '万', '億', '兆', '京', '垓', '𥝱', '穣'];
 type Quad = [string, string, string, string];
 
 /**
- * Examples:
- * - 10,000 → "一万"
- * - 2,000 → "二千"
- * - 1,000 → "千"
- * - 1 → "一"
- * - 0 → "零"
+ * Convert integer into Japanese numerals.
+ *
+ * Input       | Output   | Note
+ * -----------:|----------|:----
+ * `0`         | `零`     |
+ * `1`         | `一`     |
+ * `10`        | `十`     |
+ * `20`        | `二十`   |
+ * `1,0000`    | `一万`   | *
+ * `1000,0000` | `一千万` | **
+ *
+ * *Starting at 万, numbers begin with 一 if no digit would otherwise precede.
+ * **If 千 directly precedes powers of 万 or above, 一 is prefixed before 千.
+ * @see https://en.wikipedia.org/wiki/Japanese_numerals#Large_numbers
  */
 export default function num2Jp(integer: number): string {
   if (!Number.isInteger(integer))
@@ -21,9 +29,8 @@ export default function num2Jp(integer: number): string {
 }
 
 /**
- * Japanese numerals are grouped into myriads so this works in chunks of four or
- * quads.
- * @see https://en.wikipedia.org/wiki/Japanese_numerals#Large_numbers
+ * Japanese numerals are grouped into myriads so we iterate in chunks of four,
+ * or quads.
  */
 function iter(numerals: string, cumulativeQuadWords: string = '', index: number = 0): string {
   const [quad, remainingNumerals] = split(numerals);
@@ -48,13 +55,16 @@ function isAllZeroQuad(quad: Quad) {
 }
 
 /**
- * Split string-integer into two:
- *   - The first four digits, i.e. quads, padded with zeroes if necessary.
+ * Split integer-string into two:
+ *   - The first four digits, or quads, padded with zeroes if necessary.
  *   - The remaining digits, if any.
  *
  * Examples:
- *   - "987654321" → ["98765", "4321"]
- *   -         "1" →      ["", "0001"]
+ *
+ * Input       | Output
+ * -----------:|-------------------:
+ * `987654321` | `["98765", "4321"]`
+ * `1`         | `["", "0001"]`
  */
 function split(numerals: string): [Quad, string] {
   const firstQuad = ('0000' + numerals).slice(-4).split('') as Quad;
@@ -63,7 +73,8 @@ function split(numerals: string): [Quad, string] {
 }
 
 /**
- * Examples:
+ * Convert quad-digits into words.
+ *
  * Quad   | Word
  * -------|-----------------
  * `4321` | "四千三百二十一"
