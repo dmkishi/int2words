@@ -57,8 +57,8 @@ function isAllZeroQuad(quad: Quad) {
  */
 function split(numerals: string): [Quad, string] {
   const firstQuad = ('0000' + numerals).slice(-4).split('') as Quad;
-  const remainder = numerals.slice(0, -4);
-  return [firstQuad, remainder];
+  const remainingNumerals = numerals.slice(0, -4);
+  return [firstQuad, remainingNumerals];
 }
 
 /**
