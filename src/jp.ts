@@ -24,51 +24,34 @@ const LARGE_POWER = ['', '万', '億', '兆', '京', '垓', '𥝱', '穣'];
  */
 export default function num2Jp(integer: number): string {
   validateInteger(integer);
-  return iter(String(integer));
+  const quadDigits = getQuadDigits(integer);
+  const quadWords = quadDigits.map(quad => getQuadWords(quad));
+  const word = combineQuadWords(quadWords);
+  return word;
 }
 
 /**
- * Japanese numerals are grouped into myriads so we iterate in chunks of four,
- * or quads.
+ * Split integer into quads or fours starting from the least significant digit
+ * padded with zeroes if necessary.
+ *
+ * `54321` → `["4321", "0005"]`;
  */
-function iter(digits: string, cumulativeQuadWords: string = '', index: number = 0): string {
-  const [quad, remainingDigits] = split(digits);
-  if (isAllZeroQuad(quad) && remainingDigits.length === 0) {
-    if (index === 0)
-      return '零';
-    else
-      return cumulativeQuadWords;
+function getQuadDigits(integer: number): Quad[] {
+  const reversedDigits = String(integer).split('').reverse();
+  let quads = [];
+  for (let index = 0; ; index += 4) {
+    const quad = reversedDigits.slice(index, index + 4).reverse();
+    if (quad.length === 4) {
+      quads.push(quad as Quad);
+    } else {
+      if (quad.length !== 0) {
+        const paddedQuad = `0000${quad.join('')}`.slice(-4).split('') as Quad;
+        quads.push(paddedQuad);
+      }
+      break;
+    }
   }
-  const newQuadWords = getQuadWords(quad);
-  const newCumulativeQuadWords = accumQuadWords(newQuadWords, cumulativeQuadWords, index);
-  const newIndex = index + 1;
-  return iter(remainingDigits, newCumulativeQuadWords, newIndex);
-}
-
-function isAllZeroQuad(quad: Quad): boolean {
-  if (quad[0] !== '0') return false;
-  if (quad[1] !== '0') return false;
-  if (quad[2] !== '0') return false;
-  if (quad[3] !== '0') return false;
-  return true;
-}
-
-/**
- * Split integer-string into two:
- *   - The first four digits, or quads, padded with zeroes if necessary.
- *   - The remaining digits, if any.
- *
- * Examples:
- *
- * Input       | Output
- * -----------:|-------------------:
- * `987654321` | `["98765", "4321"]`
- * `1`         | `["", "0001"]`
- */
-function split(digits: string): [Quad, string] {
-  const firstQuad = ('0000' + digits).slice(-4).split('') as Quad;
-  const remainingDigits = digits.slice(0, -4);
-  return [firstQuad, remainingDigits];
+  return quads;
 }
 
 /**
@@ -101,11 +84,15 @@ function getWord(digit: string, place: number): string {
   return CHAR[numDigit] + (SMALL_POWER[place - 1] as string);
 }
 
-function accumQuadWords(newQuadWords: string, cumulativeQuadWords: string, index: number): string {
-  const scaleWord = LARGE_POWER[index];
-  if (scaleWord !== '' && newQuadWords === '千') {
-    return '一' + newQuadWords + scaleWord + cumulativeQuadWords;
-  } else {
-    return newQuadWords + scaleWord + cumulativeQuadWords;
-  }
+function combineQuadWords(quadWords: string[]): string {
+  let word = '';
+  quadWords.forEach((quadWord, index) => {
+    const powerWord = LARGE_POWER[index];
+    if (powerWord !== '' && quadWord === '千') {
+      word = '一' + quadWord + powerWord + word;
+    } else {
+      word = quadWord + powerWord + word;
+    }
+  });
+  return word || '零';
 }
