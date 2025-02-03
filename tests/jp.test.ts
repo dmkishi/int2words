@@ -16,12 +16,17 @@ describe('invalid arguments', () => {
 });
 
 describe('transforms', () => {
-  test('zero', () => {
-    expect(num2Jp(0)).toBe('零');
-  });
-
   test('single digits', () => {
+    expect(num2Jp(0)).toBe('零');
     expect(num2Jp(1)).toBe('一');
+    expect(num2Jp(2)).toBe('二');
+    expect(num2Jp(3)).toBe('三');
+    expect(num2Jp(4)).toBe('四');
+    expect(num2Jp(5)).toBe('五');
+    expect(num2Jp(6)).toBe('六');
+    expect(num2Jp(7)).toBe('七');
+    expect(num2Jp(8)).toBe('八');
+    expect(num2Jp(9)).toBe('九');
   });
 
   test('compounds', () => {
