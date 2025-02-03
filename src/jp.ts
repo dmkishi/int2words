@@ -44,7 +44,7 @@ function getQuadDigits(integer: number): Quad[] {
     if (quad.length === 4) {
       quads.push(quad as Quad);
     } else {
-      if (quad.length !== 0) {
+      if (quad.length > 0) {
         const paddedQuad = `0000${quad.join('')}`.slice(-4).split('') as Quad;
         quads.push(paddedQuad);
       }
