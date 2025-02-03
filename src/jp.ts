@@ -31,8 +31,8 @@ export default function num2Jp(integer: number): string {
 }
 
 /**
- * Split integer into quads or fours starting from the least significant digit
- * padded with zeroes if necessary.
+ * Group integer into groups of four or quads starting from the least
+ * significant digit, padded with zeroes if necessary.
  *
  * `54321` → `["4321", "0005"]`;
  */
