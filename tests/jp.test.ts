@@ -1,5 +1,5 @@
 import { describe, expect, test } from 'vitest'
-import num2Jp from '../src/jp.js';
+import num2Jp from '../src/lang/jp.js';
 
 describe('invalid arguments', () => {
   test('non-integers', () => {
