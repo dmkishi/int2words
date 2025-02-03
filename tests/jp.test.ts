@@ -11,6 +11,7 @@ describe('invalid arguments', () => {
 
   test('range of integers', () => {
     expect(() => num2Jp(-1)).toThrowError();
+    expect(() => num2Jp(2 ** 53 + 2)).toThrowError();
   });
 });
 
