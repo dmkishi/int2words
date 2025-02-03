@@ -98,7 +98,7 @@ function getWord(digit: string, place: number): string {
   if (place === 1) return CHAR[numDigit] as string;
   if (digit === '0') return '';
   if (digit === '1') return SMALL_POWER[place - 1] as string;
-  return CHAR[numDigit] + (SMALL_POWER[place - 1] as string) ;
+  return CHAR[numDigit] + (SMALL_POWER[place - 1] as string);
 }
 
 function accumQuadWords(newQuadWords: string, cumulativeQuadWords: string, index: number): string {
