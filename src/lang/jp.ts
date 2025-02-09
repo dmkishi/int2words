@@ -38,7 +38,7 @@ export default function num2Jp(integer: number): string {
  */
 function getQuadDigits(integer: number): Quad[] {
   const reversedDigits = String(integer).split('').reverse();
-  let quads = [];
+  const quads = [];
   for (let index = 0; ; index += 4) {
     const quad = reversedDigits.slice(index, index + 4).reverse();
     if (quad.length === 4) {
