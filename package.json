@@ -12,8 +12,8 @@
     "bench": "vitest bench"
   },
   "devDependencies": {
-    "@types/node": "^22.12.0",
+    "@types/node": "^22.13.1",
     "typescript": "^5.7.3",
-    "vitest": "^3.0.4"
+    "vitest": "^3.0.5"
   }
 }
