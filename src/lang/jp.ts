@@ -1,7 +1,9 @@
 import validateInteger from '../utils/validateInteger.js';
-import { toChunks } from '../utils/integer.js';
+import { type Digit, toChunks } from '../utils/integer.js';
 
-type Quad = [string, string, string, string];
+type Quad = [Digit, Digit, Digit, Digit];
+type Place = 1 | 2 | 3 | 4;
+type PlaceIndex = 0 | 1 | 2 | 3;
 
 const CHAR = ['', '一', '二', '三', '四', '五', '六', '七', '八', '九'] as const;
 const SMALL_POWER = ['', '十', '百', '千'] as const;
@@ -52,18 +54,23 @@ function toQuadWords(quadDigits: Quad): string {
   return `${word4}${word3}${word2}${word1}`;
 }
 
-function toWord(digit: string, place: number): string {
-  const numDigit = Number(digit);
-  if (place === 1) return CHAR[numDigit] as string;
-  if (digit === '0') return '';
-  if (digit === '1') return SMALL_POWER[place - 1] as string;
-  return CHAR[numDigit] + (SMALL_POWER[place - 1] as string);
+function toWord(digit: Digit, place: Place): string {
+  const placeIndex = place - 1 as PlaceIndex;
+  if (placeIndex === 0) return CHAR[digit];
+  if (digit === 0) return '';
+  if (digit === 1) return SMALL_POWER[placeIndex];
+  return CHAR[digit] + (SMALL_POWER[placeIndex]);
 }
 
 function combineQuadWords(quadWords: string[]): string {
   let word = '';
   quadWords.forEach((quadWord, index) => {
-    const powerWord = LARGE_POWER[index];
+    /**
+     * The valid integer range is significantly smaller than the largest power
+     * word.
+     */
+    // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+    const powerWord = LARGE_POWER[index]!;
     if (powerWord !== '' && quadWord === '千') {
       word = '一' + quadWord + powerWord + word;
     } else {
