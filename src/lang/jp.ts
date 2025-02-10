@@ -25,9 +25,9 @@ const LARGE_POWER = ['', '万', '億', '兆', '京', '垓', '𥝱', '穣'] as co
  */
 export default function num2Jp(integer: number): string {
   validateInteger(integer);
-  const quadWords = quadDigits.map(quad => getQuadWords(quad));
-  const word = combineQuadWords(quadWords);
-  return word;
+  const quads = toChunks<Quad>(integer, 4);
+  const quadWords = quads.map(quadDigits => toQuadWords(quadDigits));
+  return combineQuadWords(quadWords);
 }
 
 /**
@@ -43,16 +43,16 @@ export default function num2Jp(integer: number): string {
  * `0001` | "一"
  * `0000` | ""
  */
-function getQuadWords(quad: Quad): string {
-  const [digit4, digit3, digit2, digit1] = quad;
-  const word4 = getWord(digit4, 4);
-  const word3 = getWord(digit3, 3);
-  const word2 = getWord(digit2, 2);
-  const word1 = getWord(digit1, 1);
+function toQuadWords(quadDigits: Quad): string {
+  const [digit4, digit3, digit2, digit1] = quadDigits;
+  const word4 = toWord(digit4, 4);
+  const word3 = toWord(digit3, 3);
+  const word2 = toWord(digit2, 2);
+  const word1 = toWord(digit1, 1);
   return `${word4}${word3}${word2}${word1}`;
 }
 
-function getWord(digit: string, place: number): string {
+function toWord(digit: string, place: number): string {
   const numDigit = Number(digit);
   if (place === 1) return CHAR[numDigit] as string;
   if (digit === '0') return '';
