@@ -2,9 +2,9 @@ import { validateInteger } from '../util.js';
 
 type Quad = [string, string, string, string];
 
-const CHAR = ['', '一', '二', '三', '四', '五', '六', '七', '八', '九'];
-const SMALL_POWER = ['', '十', '百', '千'];
-const LARGE_POWER = ['', '万', '億', '兆', '京', '垓', '𥝱', '穣'];
+const CHAR = ['', '一', '二', '三', '四', '五', '六', '七', '八', '九'] as const;
+const SMALL_POWER = ['', '十', '百', '千'] as const;
+const LARGE_POWER = ['', '万', '億', '兆', '京', '垓', '𥝱', '穣'] as const;
 
 /**
  * Convert integer into Japanese numerals.
