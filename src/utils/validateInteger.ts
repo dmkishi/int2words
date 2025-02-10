@@ -1,6 +1,6 @@
 /**
- * Largest integer in a double-precision floating-point number without loss of
- * precision.
+ * Largest integer in a 64-bit (double-precision) floating-point number without
+ * a loss of precision, i.e. largest whole number.
  *
  * Input         | Output
  * --------------|-------------------
@@ -18,7 +18,7 @@ class ArgumentError extends Error {
   }
 }
 
-export function validateInteger(integer: number): void {
+export default function validateInteger(integer: number): void {
   if (!Number.isInteger(integer))
     throw new ArgumentError('Expected an integer.', { cause: integer });
   if (integer < 0)

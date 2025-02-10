@@ -1,4 +1,4 @@
-import { validateInteger } from '../util.js';
+import validateInteger from '../utils/validateInteger.js';
 
 type Quad = [string, string, string, string];
 
