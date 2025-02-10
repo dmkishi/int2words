@@ -1,4 +1,5 @@
 import validateInteger from '../utils/validateInteger.js';
+import { toChunks } from '../utils/integer.js';
 
 type Quad = [string, string, string, string];
 
@@ -24,34 +25,9 @@ const LARGE_POWER = ['', '万', '億', '兆', '京', '垓', '𥝱', '穣'] as co
  */
 export default function num2Jp(integer: number): string {
   validateInteger(integer);
-  const quadDigits = getQuadDigits(integer);
   const quadWords = quadDigits.map(quad => getQuadWords(quad));
   const word = combineQuadWords(quadWords);
   return word;
-}
-
-/**
- * Group integer into groups of four or quads starting from the least
- * significant digit, padded with zeroes if necessary.
- *
- * `54321` → `["4321", "0005"]`;
- */
-function getQuadDigits(integer: number): Quad[] {
-  const reversedDigits = String(integer).split('').reverse();
-  const quads = [];
-  for (let index = 0; ; index += 4) {
-    const quad = reversedDigits.slice(index, index + 4).reverse();
-    if (quad.length === 4) {
-      quads.push(quad as Quad);
-    } else {
-      if (quad.length > 0) {
-        const paddedQuad = `0000${quad.join('')}`.slice(-4).split('') as Quad;
-        quads.push(paddedQuad);
-      }
-      break;
-    }
-  }
-  return quads;
 }
 
 /**
