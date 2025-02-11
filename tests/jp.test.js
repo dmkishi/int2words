@@ -1,19 +1,8 @@
 import { describe, expect, test } from 'vitest'
+import { testInvalidArguments } from './modules/testInvalidArguments.js';
 import num2Jp from '../src/lang/jp.js';
 
-describe('invalid arguments', () => {
-  test('non-integers', () => {
-    expect(() => num2Jp(0.1)).toThrowError();
-    expect(() => num2Jp('string')).toThrowError();
-    expect(() => num2Jp(true)).toThrowError();
-    expect(() => num2Jp({a: 1})).toThrowError();
-  });
-
-  test('range of integers', () => {
-    expect(() => num2Jp(-1)).toThrowError();
-    expect(() => num2Jp(2 ** 53 + 2)).toThrowError();
-  });
-});
+testInvalidArguments(num2Jp);
 
 describe('transforms', () => {
   test('single digits', () => {
