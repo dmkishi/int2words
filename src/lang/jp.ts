@@ -33,7 +33,7 @@ export default function num2Jp(integer: number): string {
 }
 
 /**
- * Convert quad-digits into words.
+ * Convert quad-digits to words.
  *
  * Quad   | Word
  * -------|-----------------
