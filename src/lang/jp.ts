@@ -29,7 +29,7 @@ export default function num2Jp(integer: number): string {
   validateInteger(integer);
   const quads = toChunks<Quad>(integer, 4);
   const quadWords = quads.map(quadDigits => toQuadWords(quadDigits));
-  return combineQuadWords(quadWords);
+  return joinQuadWords(quadWords);
 }
 
 /**
@@ -62,7 +62,7 @@ function toWord(digit: Digit, place: Place): string {
   return CHAR[digit] + (SMALL_POWER[placeIndex]);
 }
 
-function combineQuadWords(quadWords: string[]): string {
+function joinQuadWords(quadWords: string[]): string {
   let word = '';
   quadWords.forEach((quadWord, index) => {
     /**
