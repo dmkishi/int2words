@@ -1,6 +1,8 @@
 import { readdirSync } from 'fs';
 import { defineConfig } from 'vitest/config';
 
+const BENCHMARK_RESULTS_DIR = 'tests/benchmark-results';
+
 /**
  * @returns Formatted date-time, e.g. `2022-12-31T23:59:59`.
  */
@@ -16,7 +18,7 @@ function formatDate(date = new Date()): string {
 };
 
 function previousBenchmark(): string {
-  const files = readdirSync('benchmarks/results');
+  const files = readdirSync(BENCHMARK_RESULTS_DIR);
   const previousBenchmark = files.sort().pop() ?? '';
   if (previousBenchmark) console.log(`Compared to: ${previousBenchmark}`);
   return previousBenchmark;
@@ -25,8 +27,8 @@ function previousBenchmark(): string {
 export default defineConfig({
   test: {
     benchmark: {
-      outputJson: `benchmarks/results/bench-${formatDate()}.json`,
-      compare: `benchmarks/results/${previousBenchmark()}`,
+      outputJson: `${BENCHMARK_RESULTS_DIR}/bench-${formatDate()}.json`,
+      compare: `${BENCHMARK_RESULTS_DIR}/${previousBenchmark()}`,
     },
   },
 });
