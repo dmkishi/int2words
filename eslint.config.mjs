@@ -15,7 +15,7 @@ export default tseslint.config(
       'benchmarks/',
       'dist/',
       'tests/',
-      'eslint.config.mjs'
+      'eslint.config.mjs',
     ],
   },
   eslint.configs.recommended,
