@@ -11,7 +11,6 @@ describe('transform largest supported integer', () => {
   bench('exponent', () => {
     num2Jp(2**53);
   });
-
   bench('literal', () => {
     num2Jp(9007199254740992);
   });
