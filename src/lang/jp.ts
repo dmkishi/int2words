@@ -28,14 +28,14 @@ const LARGE_POWER = ['', '万', '億', '兆', '京', '垓', '𥝱', '穣'] as co
 export default function num2Jp(integer: number): string {
   validateInteger(integer);
   const quads = toChunks<Quad>(integer, 4);
-  const quadWords = quads.map(quadDigits => toQuadWords(quadDigits));
-  return joinQuadWords(quadWords);
+  const quadPhrases = quads.map(quad => toQuadPhrase(quad));
+  return joinQuadPhrases(quadPhrases);
 }
 
 /**
- * Convert quad-digits to words.
+ * Convert quad-digits to a place value phrase.
  *
- * Quad   | Word
+ * Quad   | Phrase
  * -------|-----------------
  * `4321` | "四千三百二十一"
  * `1321` | "千三百二十一"
@@ -45,8 +45,8 @@ export default function num2Jp(integer: number): string {
  * `0001` | "一"
  * `0000` | ""
  */
-function toQuadWords(quadDigits: Quad): string {
-  const [digit4, digit3, digit2, digit1] = quadDigits;
+function toQuadPhrase(quad: Quad): string {
+  const [digit4, digit3, digit2, digit1] = quad;
   const word4 = toWord(digit4, 4);
   const word3 = toWord(digit3, 3);
   const word2 = toWord(digit2, 2);
@@ -62,20 +62,20 @@ function toWord(digit: Digit, place: Place): string {
   return CHAR[digit] + (SMALL_POWER[placeIndex]);
 }
 
-function joinQuadWords(quadWords: string[]): string {
-  let word = '';
-  quadWords.forEach((quadWord, index) => {
+function joinQuadPhrases(phrases: string[]): string {
+  let joinedPhrase = '';
+  phrases.forEach((phrase, index) => {
     /**
      * The valid integer range is significantly smaller than the largest power
      * word.
      */
     // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
     const powerWord = LARGE_POWER[index]!;
-    if (powerWord !== '' && quadWord === '千') {
-      word = '一' + quadWord + powerWord + word;
+    if (powerWord !== '' && phrase === '千') {
+      joinedPhrase = '一' + phrase + powerWord + joinedPhrase;
     } else {
-      word = quadWord + powerWord + word;
+      joinedPhrase = phrase + powerWord + joinedPhrase;
     }
   });
-  return word || '零';
+  return joinedPhrase || '零';
 }

@@ -31,14 +31,14 @@ const POWER = [
 export default function num2En(integer: number): string {
   validateInteger(integer);
   const triplets = toChunks<Triplet>(integer, 3);
-  const tripletWords = triplets.map(tripletDigits => toTripletWords(tripletDigits));
-  return joinTripletWords(tripletWords);
+  const tripletPhrases = triplets.map(triplet => toTripletPhrase(triplet));
+  return joinTripletPhrases(tripletPhrases);
 }
 
 /**
- * Convert triplet-digits to words.
+ * Convert triplet-digits to a place value phrase.
  *
- * Triplet | Word
+ * Triplet | Phrase
  * --------|:--------------------------
  * `001`   | "one"
  * `011`   | "eleven"
@@ -47,52 +47,52 @@ export default function num2En(integer: number): string {
  * `311`   | "three hundred eleven"
  * `321`   | "three hundred twenty-one"
  */
-function toTripletWords(triplet: Triplet): string {
+function toTripletPhrase(triplet: Triplet): string {
   const [digit3, digit2, digit1] = triplet;
-  const words: string[] = [];
+  const phrase: string[] = [];
   if (digit3 !== 0) {
-    words.push(`${ONES[digit3]} hundred`);
+    phrase.push(`${ONES[digit3]} hundred`);
   }
   switch (digit2) {
     case 0:
       if (digit1 !== 0) {
-        words.push(ONES[digit1]);
+        phrase.push(ONES[digit1]);
       }
       break;
     case 1:
-      words.push(ONES[10 + digit1 as TeenDigit]);
+      phrase.push(ONES[10 + digit1 as TeenDigit]);
       break;
     default:
       if (digit1 === 0) {
-        words.push(TENS[digit2]);
+        phrase.push(TENS[digit2]);
       } else {
-        words.push(`${TENS[digit2]}-${ONES[digit1]}`);
+        phrase.push(`${TENS[digit2]}-${ONES[digit1]}`);
       }
       break;
   }
-  return words.join(' ');
+  return phrase.join(' ');
 }
 
 /**
- * Add power words to triplet words and join.
+ * Add power words to triplet phrases and join.
  *
  *  Input           | Output
  *  :---------------|:------------------
  * `["", "one"]`    | "one thousand"
  * `["one", "one"]` | "one thousand one"
  */
-function joinTripletWords(tripletWords: string[]): string {
-  const words: string[] = [];
-  tripletWords.forEach((tripletWords, index) => {
-    if (tripletWords === '') return;
+function joinTripletPhrases(phrases: string[]): string {
+  const joinedPhrase: string[] = [];
+  phrases.forEach((phrase, index) => {
+    if (phrase === '') return;
     /**
      * The valid integer range is significantly smaller than the largest power
      * word.
      */
     // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
     const powerWord = POWER[index]!;
-    const phrase = (powerWord === '') ? tripletWords : `${tripletWords} ${powerWord}`;
-    words.push(phrase);
+    const phraseWithPowerWord = (powerWord === '') ? phrase : `${phrase} ${powerWord}`;
+    joinedPhrase.push(phraseWithPowerWord);
   });
-  return words.reverse().join(' ') || 'zero';
+  return joinedPhrase.reverse().join(' ') || 'zero';
 }
