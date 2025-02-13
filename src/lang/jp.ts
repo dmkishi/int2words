@@ -37,13 +37,13 @@ export default function num2Jp(integer: number): string {
  *
  * Quad   | Phrase
  * -------|-----------------
- * `4321` | "四千三百二十一"
- * `1321` | "千三百二十一"
- * `1121` | "千百二十一"
- * `1111` | "千百十一"
- * `1000` | "千"
- * `0001` | "一"
  * `0000` | ""
+ * `0001` | "一"
+ * `1000` | "千"
+ * `1111` | "千百十一"
+ * `1121` | "千百二十一"
+ * `1321` | "千三百二十一"
+ * `4321` | "四千三百二十一"
  */
 function toQuadPhrase(quad: Quad): string {
   const [digit4, digit3, digit2, digit1] = quad;
@@ -62,6 +62,15 @@ function toWord(digit: Digit, place: Place): string {
   return CHAR[digit] + (SMALL_POWER[placeIndex]);
 }
 
+/**
+ * Add power words to triplet phrases and join.
+ *
+ *  Input       | Output
+ *  :-----------|:--------
+ * `["一"]`     | "一"
+ * `["", "一"]` | "一万"
+ * `["", "千"]` | "一千万"
+ */
 function joinQuadPhrases(phrases: string[]): string {
   let joinedPhrase = '';
   phrases.forEach((phrase, index) => {
