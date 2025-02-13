@@ -10,6 +10,16 @@ const ONES = ['', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight'
 const TENS = ['', '', 'twenty', 'thirty', 'forty', 'fifty', 'sixty', 'seventy', 'eighty', 'ninety'] as const;
 const POWER = ['', 'thousand', 'million', 'billion', 'trillion', 'quadrillion', 'quintillion', 'sextillion', 'septillion', 'octillion', 'nonillion'] as const;
 
+/**
+ * Convert integer into an English number phrase.
+ *
+ * Input | Output
+ * ------|-------------
+ * `0`   | `zero`
+ * `1`   | `one`
+ * `11`  | `eleven`
+ * `21`  | `twenty-one`
+ */
 export default function num2En(integer: number): string {
   validateInteger(integer);
   const triplets = toChunks<Triplet>(integer, 3);

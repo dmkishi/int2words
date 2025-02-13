@@ -10,7 +10,7 @@ const SMALL_POWER = ['', '十', '百', '千'] as const;
 const LARGE_POWER = ['', '万', '億', '兆', '京', '垓', '𥝱', '穣'] as const;
 
 /**
- * Convert integer into Japanese numerals.
+ * Convert integer into a Japanese number phrase.
  *
  * Input       | Output   | Note
  * -----------:|----------|:----
