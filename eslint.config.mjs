@@ -13,7 +13,7 @@ export default tseslint.config(
     ignores: [
       'benchmarks/',
       'dist/',
-      'tests/',
+      'test/',
       'eslint.config.mjs',
     ],
   },

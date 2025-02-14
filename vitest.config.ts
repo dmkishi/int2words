@@ -1,7 +1,7 @@
 import { readdirSync } from 'fs';
 import { defineConfig } from 'vitest/config';
 
-const BENCHMARK_RESULTS_DIR = 'tests/benchmark-results';
+const BENCHMARK_RESULTS_DIR = 'test/benchmark-results';
 
 /**
  * @returns Formatted date-time, e.g. `2022-12-31T23:59:59`.
