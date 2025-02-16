@@ -11,7 +11,7 @@ export function testInvalidArguments(func) {
 
     test('out-of-range integers', () => {
       expect(() => func(-1)).toThrowError();
-      expect(() => func(2 ** 53 + 2)).toThrowError();
+      expect(() => func(Number.MAX_SAFE_INTEGER + 1)).toThrowError();
     });
   });
 }

@@ -8,10 +8,10 @@ describe('transform smallest supported integer', () => {
 });
 
 describe('transform largest supported integer', () => {
-  bench('exponent', () => {
-    num2Jp(2**53);
+  bench('constant', () => {
+    num2Jp(Number.MAX_SAFE_INTEGER);
   });
   bench('literal', () => {
-    num2Jp(9007199254740992);
+    num2Jp(9007199254740991);
   });
 });

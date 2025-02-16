@@ -53,6 +53,6 @@ describe('transforms', () => {
     expect(num2En(1_000_000_000)).toBe('one billion');
     expect(num2En(1_000_000_000_000)).toBe('one trillion');
     expect(num2En(1_000_000_000_000_000)).toBe('one quadrillion');
-    expect(num2En(2**53)).toBe('nine quadrillion seven trillion one hundred ninety-nine billion two hundred fifty-four million seven hundred forty thousand nine hundred ninety-two');
+    expect(num2En(Number.MAX_SAFE_INTEGER)).toBe('nine quadrillion seven trillion one hundred ninety-nine billion two hundred fifty-four million seven hundred forty thousand nine hundred ninety-one');
   });
 })
