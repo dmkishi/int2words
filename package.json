@@ -7,10 +7,11 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "build": "tsc",
-    "lint": "eslint",
+    "build": "rm -rf ./dist/* && tsc",
+    "lint": "eslint --cache .",
     "test": "vitest",
-    "benchmark": "vitest bench --run"
+    "benchmark": "vitest bench --run",
+    "prepublishOnly": "npm run build"
   },
   "devDependencies": {
     "@eslint/js": "^9.20.0",
