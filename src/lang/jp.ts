@@ -1,5 +1,5 @@
 import validateInteger from '../utils/validateInteger.js';
-import { type Digit, toChunks } from '../utils/integer.js';
+import { type Digit, toChunks } from '../utils/chunkDigits.js';
 
 type Quad = [Digit, Digit, Digit, Digit];
 type Place = 1 | 2 | 3 | 4;

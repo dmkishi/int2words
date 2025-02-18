@@ -1,5 +1,5 @@
 import validateInteger from '../utils/validateInteger.js';
-import { type Digit, toChunks } from '../utils/integer.js';
+import { type Digit, toChunks } from '../utils/chunkDigits.js';
 
 type Triplet = [Digit, Digit, Digit];
 type TeenDigit =
