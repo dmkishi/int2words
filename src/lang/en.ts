@@ -1,4 +1,4 @@
-import validateInteger from '../utils/validateInteger.js';
+import handleInput from '../utils/handleInput.js';
 import { type Digit, toChunks } from '../utils/chunkDigits.js';
 
 type Triplet = [Digit, Digit, Digit];
@@ -28,8 +28,8 @@ const POWER = [
  * `11`  | `eleven`
  * `21`  | `twenty-one`
  */
-export default function num2En(integer: number): string {
-  validateInteger(integer);
+export default function num2En(input: number | string, options = defaultOptions ): string {
+  const integer = handleInput(input);
   const triplets = toChunks<Triplet>(integer, 3);
   const tripletPhrases = triplets.map(triplet => toTripletPhrase(triplet));
   return joinTripletPhrases(tripletPhrases);
