@@ -1,5 +1,5 @@
 import { bench, describe } from 'vitest';
-import num2En from '../src/lang/en.js';
+import { num2En } from '../src/index.js';
 
 describe('transform smallest supported integer', () => {
   bench('zero', () => {

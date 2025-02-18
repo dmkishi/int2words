@@ -1,5 +1,5 @@
 import { bench, describe } from 'vitest';
-import num2Jp from '../src/lang/jp.js';
+import { num2Jp } from '../src/index.js';
 
 describe('transform smallest supported integer', () => {
   bench('zero', () => {
