@@ -1,0 +1,13 @@
+{
+  "gitignore": true,
+  "globs": ["**/*.md"],
+  "config": {
+    "MD003": { "style": "setext_with_atx" },
+    "MD022": false,
+    "MD031": false, // Agree but prefer no blanks after headings.
+    "MD032": false, // Agree but prefer no blanks after headings.
+    "MD055": false, // False negative when last cell is empty w/o trailing pipe.
+    "MD056": false, // False negative when last cell is empty w/o trailing pipe.
+    "MD058": false  // Agree but prefer no blanks after headings.
+  }
+}
