@@ -1,5 +1,5 @@
-import handleInput from '../utils/handleInput.js';
-import { type Digit, toChunks } from '../utils/chunkDigits.js';
+import handleInput from '../util/handleInput.js';
+import { type Digit, toChunks } from '../util/chunkDigits.js';
 
 type Triplet = [Digit, Digit, Digit];
 type TeenDigit =
