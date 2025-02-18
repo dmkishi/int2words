@@ -1,6 +1,6 @@
 import { describe, expect, test } from 'vitest'
-import { testInvalidArguments } from './modules/testInvalidArguments.js';
 import num2Jp from '../src/lang/japanese.js';
+import { testInvalidArguments } from './modules/testHandleInput.js';
 
 testInvalidArguments(num2Jp);
 
