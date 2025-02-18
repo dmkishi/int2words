@@ -1,6 +1,6 @@
 import { describe, expect, test } from 'vitest'
 import { testInvalidArguments } from './modules/testInvalidArguments.js';
-import num2En from '../src/lang/en.js';
+import num2En from '../src/lang/english.js';
 
 testInvalidArguments(num2En);
 

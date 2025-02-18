@@ -18,6 +18,10 @@ const POWER = [
     'nonillion'
   ] as const;
 
+const defaultOptions = {
+  hyphenate: true,
+};
+
 /**
  * Convert integer into an English number phrase.
  *
