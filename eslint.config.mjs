@@ -31,6 +31,7 @@ export default tseslint.config(
       parserOptions: {
         projectService: {
           allowDefaultProject: [
+            'rollup.config.js',
             'vitest.config.ts',
           ],
         },

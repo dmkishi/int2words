@@ -7,7 +7,7 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "build": "rm -rf ./dist/* && tsc",
+    "build": "rm -rf ./dist/* && tsc && rollup -c",
     "lint": "eslint --cache .",
     "lint:markdown": "markdownlint-cli2",
     "test": "vitest",
@@ -15,14 +15,23 @@
     "prepublishOnly": "npm run build"
   },
   "devDependencies": {
+    "@babel/core": "^7.26.9",
+    "@babel/preset-env": "^7.26.9",
     "@eslint/js": "^9.20.0",
+    "@rollup/plugin-babel": "^6.0.4",
+    "@rollup/plugin-commonjs": "^28.0.2",
+    "@rollup/plugin-node-resolve": "^16.0.0",
+    "@rollup/plugin-terser": "^0.4.4",
     "@types/node": "^22.13.4",
+    "core-js": "^3.40.0",
     "eslint": "^9.20.1",
     "markdownlint-cli2": "^0.17.2",
+    "rollup": "^4.34.8",
     "typescript": "^5.7.3",
     "typescript-eslint": "^8.24.1",
     "vitest": "^3.0.6"
   },
+  "repository": "",
   "keywords": [
     "number",
     "translate",
@@ -30,9 +39,11 @@
     "Japanese"
   ],
   "exports": {
-    "types": "./dist/index.d.ts",
-    "import": "./dist/index.js"
+    "types": "./dist/esm/index.d.ts",
+    "import": "./dist/esm/index.js",
+    "legacy-iife": "./dist/legacy-iife/int2words.min.js"
   },
+  "unpkg": "dist/legacy-iife/int2words.min.js",
   "files": [
     "dist"
   ]

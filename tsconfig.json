@@ -16,7 +16,7 @@
     "noImplicitOverride": true,
     // Transpile our TypeScript code to JavaScript
     "module": "NodeNext",
-    "outDir": "dist",
+    "outDir": "dist/esm",
     "sourceMap": true,
     // Emit type declarations (if you're building for a library)
     "declaration": true,
