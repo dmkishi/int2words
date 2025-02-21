@@ -29,13 +29,13 @@ export default tseslint.config(
      */
     languageOptions: {
       parserOptions: {
+        tsconfigRootDir: import.meta.dirname,
         projectService: {
           allowDefaultProject: [
             'rollup.config.js',
             'vitest.config.ts',
           ],
         },
-        tsconfigRootDir: import.meta.dirname,
       },
     },
   },
