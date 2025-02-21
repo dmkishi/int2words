@@ -1,4 +1,5 @@
-# numToWords
+int2words
+================================================================================
 
 Convert integers to words, with several flavors.
 

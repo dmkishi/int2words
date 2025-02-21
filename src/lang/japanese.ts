@@ -25,7 +25,7 @@ const LARGE_POWER = ['', '万', '億', '兆', '京', '垓', '𥝱', '穣'] as co
  * **If 千 directly precedes powers of 万 or above, 一 is prefixed before 千.
  * @see https://en.wikipedia.org/wiki/Japanese_numerals#Large_numbers
  */
-export default function num2Jp(input: number | string): string {
+export default function int2jp(input: number | string): string {
   const integer = handleInput(input);
   const quads = toChunks<Quad>(integer, 4);
   const quadPhrases = quads.map(quad => toQuadPhrase(quad));

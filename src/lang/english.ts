@@ -32,7 +32,7 @@ const defaultOptions = {
  * `11`  | `eleven`
  * `21`  | `twenty-one`
  */
-export default function num2En(input: number | string, options = defaultOptions ): string {
+export default function int2en(input: number | string, options = defaultOptions ): string {
   const integer = handleInput(input);
   const triplets = toChunks<Triplet>(integer, 3);
   const tripletPhrases = triplets.map(triplet => toTripletPhrase(triplet));

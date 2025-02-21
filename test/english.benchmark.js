@@ -1,17 +1,17 @@
 import { bench, describe } from 'vitest';
-import { num2En } from '../src/index.js';
+import { int2en } from '../src/index.js';
 
 describe('transform smallest supported integer', () => {
   bench('zero', () => {
-    num2En(0);
+    int2en(0);
   });
 });
 
 describe('transform largest supported integer', () => {
   bench('constant', () => {
-    num2En(Number.MAX_SAFE_INTEGER);
+    int2en(Number.MAX_SAFE_INTEGER);
   });
   bench('literal', () => {
-    num2En(9007199254740991);
+    int2en(9007199254740991);
   });
 });
