@@ -1,4 +1,4 @@
-class ArgumentError extends Error {
+export class ArgumentError extends Error {
   constructor(message: string, options: object = {}) {
     super(`Invalid argument: ${message}`, options);
   }
