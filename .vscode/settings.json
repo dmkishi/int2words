@@ -3,6 +3,7 @@
     "davidanson.vscode-markdownlint"
   ],
   "cSpell.words": [
-    "corejs"
+    "corejs",
+    "setext"
   ]
 }
