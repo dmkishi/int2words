@@ -1,46 +1,41 @@
 int2words
 ================================================================================
+Convert integers to words.
 
-Convert integers to words, with several flavors.
+Features and limitations:
+- **Languages**: English and Japanese.
+- **Integer range**: 0 → 2<sup>53</sup>–1.
+  - While 64-bit floating-point numbers technically support numbers up to approximately 1.8 × 10<sup>308</sup>, there is a significant loss of precision. 2<sup>53</sup>–1 is the largest integer with no loss of precision.
 
-Supports integers from 0 to 999,999,999,999,999,999,999,999,999,999,999, or to the [short scale](https://en.wikipedia.org/wiki/Long_and_short_scales) of nonillion (10<sup>30</sup>).
-
-Modified from <http://stackoverflow.com/questions/14766951/convert-digits-into-words-with-javascript>.
-
-## Flavors
-- **numToWords**
-  - Usage:
-```javascript
-var words = numToWords(123);
-console.log(words); // "one hundred twenty-three"
-```
-- **makeNumStrToWordsHP** (High Performance)
-  - You don't need this, just use `numToWords()`.
-  - Details:
-    - Returns a closure function, relieving the need to redeclare functions and variables every time a function call is made.
-    - Further performance tweaks rely on the argument number pre-converted to a string.
-    - No error checking.
-  - Usage:
-```javascript
-var numToWordsHP = makeNumToWordsHP();
-var words = numToWordsHP('123'); // NOTE: Argument is quoted.
-console.log(words); // "one hundred twenty-three"
-```
-- **numToJP** and **makeNumStrToJPHP**
-  - Same as above but returns in Japanese.
-  - Usage:
-```javascript
-console.log(numToJP(123)); // "百二十三"
+Install
+--------------------------------------------------------------------------------
+```sh
+npm install int2words
 ```
 
-## Install with Bower
-If you already have a `bower.json` file in the project root directory, enter:
-```shell
-# Latest version
-bower install --save git@github.com:dmkishi/numToWords.git
+For legacy browsers:
 
-# Particular version
-bower install --save git@github.com:dmkishi/numToWords.git#1.2.1
+Usage
+--------------------------------------------------------------------------------
+```js
+import { int2en, int2jp } from 'int2words';
+console.log(int2en(321)); // "three hundred twenty-one"
+console.log(int2jp(321)); // "三百二十一"
 ```
 
-If there is no `bower.json`, create one with `bower init`.
+For legacy browsers:
+
+Changelog
+--------------------------------------------------------------------------------
+### v2.0.0 (2025-)
+Change name and modernize.
+
+### v1.2.7 (2016-5-4)
+
+Acknowledgments
+--------------------------------------------------------------------------------
+- Originally a modification from <http://stackoverflow.com/questions/14766951/convert-digits-into-words-with-javascript>.
+
+License
+--------------------------------------------------------------------------------
+This project is licensed under the [GNU General Public License (GPL)](LICENSE).
