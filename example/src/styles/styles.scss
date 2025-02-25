@@ -1,0 +1,160 @@
+@import 'reset.scss' layer(reset);
+
+/*******************************************************************************
+ * #Utilities
+ ******************************************************************************/
+.visually-hidden:not(:focus, :active) {
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  // position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+/*******************************************************************************
+ * #Variables
+ ******************************************************************************/
+$small: 480px;
+$medium: 650px;
+$max-width: 850px;
+
+:root {
+  --black: #213547;
+  --pink: #f5cfe2;
+  --green: #72ad9f;
+  --indent: 40px;
+}
+
+/*******************************************************************************
+ * #Main
+ ******************************************************************************/
+html {
+  color-scheme: light dark;
+  background-color: var(--pink);
+  color: var(--black);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+  max-width: $max-width;
+  height: 100vh;
+  margin: 0 auto;
+  padding: 1rem 1.5rem;
+
+  @media (width > $small) {
+    padding-inline: 4rem;
+  }
+
+  @media (width > $medium) {
+    padding-top: 1.25rem;
+  }
+}
+
+h2 {
+  margin-block: 1.75em -.2em;
+  font-size: 1.25rem;
+}
+
+ul {
+  padding-inline-start: var(--indent);
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  gap: .75rem;
+
+  @media (width > $medium) {
+    padding-right: calc(var(--indent) * 2);
+  }
+}
+
+label,
+fieldset {
+  display: grid;
+  grid-template-columns: calc(var(--indent) * 2) 1fr;
+}
+
+fieldset {
+  border: 0;
+  margin: 0;
+  padding: 0;
+}
+
+legend {
+  display: contents;
+}
+
+input {
+  border: none;
+  background-color: var(--black);
+  color: var(--pink);
+}
+
+.presets {
+  display: flex;
+  gap: .333em;
+  flex-wrap: wrap;
+}
+
+.preset {
+  border: 1px solid rgba(0 0 0 / 75%);
+  border-radius: 2px;
+  padding: .2em 0.5em .1em;
+  background-color: transparent;
+  white-space: nowrap;
+
+  &:hover {
+    background-color: rgba(255 255 255 / 15%);
+  }
+
+  &:active {
+    position: relative;
+    top: 1px;
+  }
+}
+
+output {
+  padding: .125em .333em .75em;
+  background-color: var(--green);
+  font-size: 1.5rem;
+  line-height: 1.2;
+  color: var(--pink);
+
+  @media (width > $small) {
+    padding: .25em .4em 1em .333em;
+  }
+
+  &[name="error"] {
+    min-height: auto;
+    // background-color: #f92337;
+    background-color: transparent;
+    border: 1px solid var(--green);
+    font-size: 1rem;
+    color: var(--green);
+  }
+}
+
+label {
+  &:has(output[name="error"]) {
+    display: none;
+  }
+
+  &:has(output[name="error"]:not(:empty)) {
+    display: grid;
+  }
+}
+
+footer {
+  align-self: end;
+  font-size: 85%;
+}

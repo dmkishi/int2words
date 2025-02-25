@@ -1,0 +1,28 @@
+{
+  "name": "int2words-example",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite --open",
+    "build": "vite build",
+    "preview": "vite preview --open",
+    "lint": "npm run lint:script && npm run lint:style",
+    "lint:script": "eslint",
+    "lint:style": "stylelint '**/*.scss'"
+  },
+  "dependencies": {
+    "int2words": "file:../"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.20.0",
+    "eslint": "^9.20.1",
+    "globals": "^16.0.0",
+    "postcss": "^8.5.2",
+    "postcss-scss": "^4.0.9",
+    "sass": "^1.85.0",
+    "stylelint": "^16.14.1",
+    "stylelint-config-standard-scss": "^14.0.0",
+    "typescript-eslint": "^8.24.1",
+    "vite": "^6.1.0"
+  }
+}

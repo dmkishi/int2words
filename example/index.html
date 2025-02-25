@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script type="module" src="/src/main.js"></script>
+    <title>int2words Example</title>
+  </head>
+  <body>
+    <header>
+      <h1>int2words Example</h1>
+      <p><code><a href="">int2words</a></code> is an NPM package that converts integers to words.</p>
+      <h2>Features and Limitations</h2>
+      <ul>
+        <li><b>Languages</b>: English and Japanese.</li>
+        <li><b>Integer range</b>: 0 → 2<sup>53</sup>–1.
+          <ul><li>While 64-bit floating-point numbers technically support numbers up to approximately 1.8 × 10<sup>308</sup>, there is a significant loss of precision. 2<sup>53</sup>–1 is the largest integer with no loss of precision.</li></ul>
+        </li>
+      </ul>
+    </header>
+    <form>
+      <label>
+        Input:
+        <input id="integer" type="number" value="1" autofocus>
+      </label>
+      <fieldset>
+        <legend><span class="visually-hidden">Presets:</span></legend>
+        <div class="presets">
+          <button type="button" class="preset" value="0">0</button>
+          <button type="button" class="preset" value="1">1</button>
+          <button type="button" class="preset" value="1.0">1.0</button>
+          <button type="button" class="preset" value="11">11</button>
+          <button type="button" class="preset" value="21">21</button>
+          <button type="button" class="preset" value="121">121</button>
+          <button type="button" class="preset" value="9007199254740991">2<sup>53</sup>–1</button>
+          <button type="button" class="preset" value="9007199254740992">2<sup>53</sup></button>
+          <button type="button" class="preset" value="-1">–1</button>
+          <button type="button" class="preset" value="1.1">1.1</button>
+          <button type="button" class="preset" value="no">"no"</button>
+          <button type="button" class="preset" value="1">"1"</button>
+        </div>
+      </fieldset>
+      <label>
+        <span class="visually-hidden">English</span>
+        <output for="integer" name="english"></output>
+      </label>
+      <label>
+        <span class="visually-hidden">Japanese</span>
+        <output for="integer" name="japanese"></output>
+      </label>
+      <label>
+        <span>Console:</span>
+        <output for="integer" name="error"></output>
+      </label>
+    </form>
+  </body>
+  <footer>
+    int2words by DM Kishi. &copy; 2025.
+  </footer>
+</html>
