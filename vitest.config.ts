@@ -30,5 +30,8 @@ export default defineConfig({
       outputJson: `${BENCHMARK_RESULTS_DIR}/bench-${formatDate()}.json`,
       compare: `${BENCHMARK_RESULTS_DIR}/${previousBenchmark()}`,
     },
+    coverage: {
+      reportsDirectory: 'test/coverage-results',
+    },
   },
 });
