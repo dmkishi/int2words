@@ -1,8 +1,5 @@
-#!/usr/bin/env bash
-#
-# Install:
-# 1. `cd` to `.githooks`.
-# 2. ln -sf ../../.githooks/pre-push.sh ../.git/hooks/pre-push
+#!/bin/sh
+# Ensure Git tag is present.
 
 set -e
 
