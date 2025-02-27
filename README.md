@@ -1,6 +1,6 @@
 int2words
 ================================================================================
-Convert integers to words.
+Convert integers into words.
 
 Features and limitations:
 - **Languages**: English and Japanese.

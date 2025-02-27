@@ -1,7 +1,7 @@
 {
   "name": "int2words",
   "version": "2.0.0",
-  "description": "Convert integers to words.",
+  "description": "Convert integers into words.",
   "license": "MIT",
   "author": "DM Kishi <dm.kishi@gmail.com>",
   "private": true,
