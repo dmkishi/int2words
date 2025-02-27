@@ -4,7 +4,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite --open",
-    "build": "vite build",
+    "build:docs": "vite build",
     "preview": "vite preview --open",
     "lint": "npm run lint:script && npm run lint:style",
     "lint:script": "eslint",
