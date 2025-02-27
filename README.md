@@ -2,7 +2,7 @@ int2words
 ================================================================================
 Convert integers into words.
 
-Features and limitations:
+**Features and limitations**:
 - **Languages**: English and Japanese.
 - **Integer range**: 0 → 2<sup>53</sup>–1.
   - While 64-bit floating-point numbers technically support numbers up to approximately 1.8 × 10<sup>308</sup>, there is a significant loss of precision. 2<sup>53</sup>–1 is the largest integer with no loss of precision.
