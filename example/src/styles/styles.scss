@@ -73,6 +73,14 @@ form {
   flex-grow: 1;
   gap: .75rem;
 
+  // Provide sufficient space on mobile devices to enable scrolling up enough so
+  // that the <input> field can be at the top of the screen.
+  margin-bottom: 100%;
+
+  @media (width > $small) {
+    margin-bottom: 2rem;
+  }
+
   @media (width > $medium) {
     padding-right: calc(var(--indent) * 2);
   }
