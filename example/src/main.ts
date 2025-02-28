@@ -8,6 +8,7 @@ const output = {
   japanese: document.querySelector<HTMLOutputElement>('output[name="japanese"]'),
   error: document.querySelector<HTMLOutputElement>('output[name="error"]'),
 };
+const isTouchDevice = window.matchMedia("(pointer: coarse)").matches;
 
 function convert() {
   if (!input || !output.english || !output.japanese || !output.error) {
@@ -37,6 +38,8 @@ presetButtons.forEach((button) => {
   button.addEventListener('click', () => {
     input.value = button.value;
     input.dispatchEvent(new Event('input'));
-    input.focus();
+    if (!isTouchDevice) {
+      input.focus();
+    }
   });
 });
