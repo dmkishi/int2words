@@ -3,7 +3,7 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "vite --open",
+    "dev": "vite --host --open",
     "build:docs": "vite build",
     "preview": "vite preview --open",
     "lint": "npm run lint:script && npm run lint:style",
