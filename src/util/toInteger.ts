@@ -1,6 +1,7 @@
-export class ArgumentError extends Error {
+export class CoercionError extends Error {
   constructor(message: string, options: object = {}) {
-    super(`Invalid argument: ${message}`, options);
+    super(message, options);
+    this.name = 'CoercionError';
   }
 }
 
@@ -16,7 +17,7 @@ export default function toInteger(input: number | string): number {
   if (typeof input === 'string') {
     return coerceNumber(coerceString(input));
   }
-  throw new ArgumentError(
+  throw new CoercionError(
     'Expected a string or number.',
     { cause: input }
   );
@@ -24,14 +25,14 @@ export default function toInteger(input: number | string): number {
 
 function coerceString(string: string): number {
   if (string === '') {
-    throw new ArgumentError(
+    throw new CoercionError(
       'Expected a non-empty string.',
       { cause: string }
     );
   }
   const number = Number(string);
   if (isNaN(number)) {
-    throw new ArgumentError(
+    throw new CoercionError(
       'Failed to extract number.',
       { cause: number }
     );
@@ -46,19 +47,19 @@ function coerceNumber(number: number): number {
    * - `NaN`, `Infinity` and `-Infinity`
    */
   if (!Number.isInteger(number)) {
-    throw new ArgumentError(
+    throw new CoercionError(
       'Expected an integer.',
       { cause: number }
     );
   }
   if (number < 0) {
-    throw new ArgumentError(
+    throw new CoercionError(
       'Expected a positive integer.',
       { cause: number }
     );
   }
   if (number > Number.MAX_SAFE_INTEGER) {
-    throw new ArgumentError(
+    throw new CoercionError(
       `Integers greater than ${Number.MAX_SAFE_INTEGER} not supported.`,
       { cause: number }
     );

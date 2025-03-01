@@ -1,5 +1,5 @@
 import './styles/styles.scss';
-import { int2en, int2jp, ArgumentError } from 'int2words';
+import { int2en, int2jp, CoercionError } from 'int2words';
 
 const input = document.querySelector<HTMLInputElement>('#integer');
 const presetButtons = document.querySelectorAll<HTMLButtonElement>('.preset');
@@ -20,7 +20,7 @@ function convert() {
   } catch (error) {
     output.english.innerText = '';
     output.japanese.innerText = '';
-    if (error instanceof ArgumentError) {
+    if (error instanceof CoercionError) {
       output.error.innerText = error.message;
     }
     throw error;
