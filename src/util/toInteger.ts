@@ -9,7 +9,7 @@ export class ArgumentError extends Error {
  *
  * @see `PROCESS.md` regarding logic of coercion.
  */
-export default function handleInput(input: number | string): number {
+export default function toInteger(input: number | string): number {
   if (typeof input === 'number') {
     return coerceNumber(input);
   }

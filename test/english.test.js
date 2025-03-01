@@ -1,5 +1,5 @@
 import { describe, expect, test } from 'vitest'
-import { testInvalidArguments } from './modules/testHandleInput.js';
+import { testInvalidArguments } from './modules/testToInteger.js';
 import { int2en } from '../src/index.js';
 
 testInvalidArguments(int2en);

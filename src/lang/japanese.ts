@@ -1,4 +1,4 @@
-import handleInput from '../util/handleInput.js';
+import toInteger from '../util/toInteger.js';
 import { type Digit, toChunks } from '../util/chunkDigits.js';
 
 type Quad = [Digit, Digit, Digit, Digit];
@@ -26,7 +26,7 @@ const LARGE_POWER = ['', '万', '億', '兆', '京', '垓', '𥝱', '穣'] as co
  * @see https://en.wikipedia.org/wiki/Japanese_numerals#Large_numbers
  */
 export default function int2jp(input: number | string): string {
-  const integer = handleInput(input);
+  const integer = toInteger(input);
   const quads = toChunks<Quad>(integer, 4);
   const quadPhrases = quads.map(quad => toQuadPhrase(quad));
   return joinQuadPhrases(quadPhrases);

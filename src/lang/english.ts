@@ -1,4 +1,4 @@
-import handleInput from '../util/handleInput.js';
+import toInteger from '../util/toInteger.js';
 import { type Digit, toChunks } from '../util/chunkDigits.js';
 
 type Triplet = [Digit, Digit, Digit];
@@ -33,7 +33,7 @@ const defaultOptions = {
  * `21`  | `twenty-one`
  */
 export default function int2en(input: number | string, options = defaultOptions ): string {
-  const integer = handleInput(input);
+  const integer = toInteger(input);
   const triplets = toChunks<Triplet>(integer, 3);
   const tripletPhrases = triplets.map(triplet => toTripletPhrase(triplet));
   return joinTripletPhrases(tripletPhrases);
