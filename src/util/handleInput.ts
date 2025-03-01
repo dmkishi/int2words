@@ -5,7 +5,9 @@ export class ArgumentError extends Error {
 }
 
 /**
- * @see `DOCS/process.md`
+ * Conservatively coerce number or string to integer.
+ *
+ * @see `PROCESS.md` regarding logic of coercion.
  */
 export default function handleInput(input: number | string): number {
   if (typeof input === 'number') {
