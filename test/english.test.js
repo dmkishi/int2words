@@ -1,8 +1,10 @@
 import { describe, expect, test } from 'vitest'
-import { testInvalidArguments } from './modules/testToInteger.js';
+import testIsValidInput from './modules/testIsValidInput.js';
+import testInputTypeCoercion from './modules/testInputTypeCoercion.js';
 import { int2en } from '../src/index.js';
 
-testInvalidArguments(int2en);
+testIsValidInput(int2en);
+testInputTypeCoercion(int2en);
 
 describe('transforms', () => {
   test('ones through teens', () => {

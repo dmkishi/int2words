@@ -1,4 +1,4 @@
-import toInteger from '../util/toInteger.js';
+import isValidInput, { type Input } from '../util/isValidInput.js';
 import { type Digit, toChunks } from '../util/chunkDigits.js';
 
 type Triplet = [Digit, Digit, Digit];
@@ -17,8 +17,8 @@ const POWER = [
     '', 'thousand', 'million', 'billion', 'trillion', 'quadrillion', 'quintillion', 'sextillion', 'septillion', 'octillion',
     'nonillion'
   ] as const;
-
 const defaultOptions = {
+  throwError: false,
   hyphenate: true,
 };
 
@@ -32,8 +32,9 @@ const defaultOptions = {
  * `11`  | `eleven`
  * `21`  | `twenty-one`
  */
-export default function int2en(input: number | string, options = defaultOptions ): string {
-  const integer = toInteger(input);
+export default function int2en(input: Input, options = defaultOptions): string {
+  if (!isValidInput(input, options.throwError)) return '';
+  const integer = Number(input);
   const triplets = toChunks<Triplet>(integer, 3);
   const tripletPhrases = triplets.map(triplet => toTripletPhrase(triplet));
   return joinTripletPhrases(tripletPhrases);

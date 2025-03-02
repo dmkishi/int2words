@@ -1,4 +1,4 @@
-import toInteger from '../util/toInteger.js';
+import isValidInput, { type Input } from '../util/isValidInput.js';
 import { type Digit, toChunks } from '../util/chunkDigits.js';
 
 type Quad = [Digit, Digit, Digit, Digit];
@@ -8,6 +8,9 @@ type PlaceIndex = 0 | 1 | 2 | 3;
 const CHAR = ['', '一', '二', '三', '四', '五', '六', '七', '八', '九'] as const;
 const SMALL_POWER = ['', '十', '百', '千'] as const;
 const LARGE_POWER = ['', '万', '億', '兆', '京', '垓', '𥝱', '穣'] as const;
+const defaultOptions = {
+  throwError: false,
+};
 
 /**
  * Convert integer into a Japanese number phrase.
@@ -25,8 +28,9 @@ const LARGE_POWER = ['', '万', '億', '兆', '京', '垓', '𥝱', '穣'] as co
  * **If 千 directly precedes powers of 万 or above, 一 is prefixed before 千.
  * @see https://en.wikipedia.org/wiki/Japanese_numerals#Large_numbers
  */
-export default function int2jp(input: number | string): string {
-  const integer = toInteger(input);
+export default function int2jp(input: Input, options = defaultOptions): string {
+  if (!isValidInput(input, options.throwError)) return '';
+  const integer = Number(input);
   const quads = toChunks<Quad>(integer, 4);
   const quadPhrases = quads.map(quad => toQuadPhrase(quad));
   return joinQuadPhrases(quadPhrases);
