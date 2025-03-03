@@ -31,6 +31,7 @@ export default defineConfig({
       compare: `${BENCHMARK_RESULTS_DIR}/${previousBenchmark()}`,
     },
     coverage: {
+      include: ['src'],
       reportsDirectory: 'test/coverage-results',
     },
   },
