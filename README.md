@@ -20,10 +20,10 @@ For legacy browsers:
 Usage
 --------------------------------------------------------------------------------
 ```js
-import { int2en, int2jp } from 'int2words';
+import { int2en, int2ja } from 'int2words';
 
 console.log(int2en(321)); // "three hundred twenty-one"
-console.log(int2jp(321)); // "三百二十一"
+console.log(int2ja(321)); // "三百二十一"
 console.log(int2en(-1)) // Invalid input: ""
 
 /**

@@ -1,5 +1,5 @@
 import './styles/styles.scss';
-import { int2en, int2jp, CoercionError } from 'int2words';
+import { int2en, int2ja, CoercionError } from 'int2words';
 
 const input = document.querySelector<HTMLInputElement>('#integer');
 const presetButtons = document.querySelectorAll<HTMLButtonElement>('.preset');
@@ -25,7 +25,7 @@ function convert() {
     }
     throw error;
   }
-  output.japanese.innerText = int2jp(input.value);
+  output.japanese.innerText = int2ja(input.value);
 }
 
 if (!input) {
