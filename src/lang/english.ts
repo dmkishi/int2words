@@ -1,5 +1,5 @@
-import isValidInput, { type Input } from '../util/isValidInput.js';
-import { type Digit, toChunks } from '../util/chunkDigits.js';
+import isValidInput, { type Input } from './util/isValidInput.js';
+import { type Digit, toChunks } from './util/chunkDigits.js';
 
 type Triplet = [Digit, Digit, Digit];
 type TeenDigit =
