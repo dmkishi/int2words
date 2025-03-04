@@ -14,7 +14,7 @@ export default {
     ],
     'scss/double-slash-comment-empty-line-before': [
       'always',
-      { except: ['inside-block'] },
+      { ignore: ['inside-block'] },
     ],
     'value-keyword-case': [
       'lower',
