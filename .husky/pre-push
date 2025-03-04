@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env bash
 # Ensure Git tag is present.
 
 set -e
