@@ -5,6 +5,7 @@ node_modules
 .DS_Store
 
 # App
-dist
-coverage
+dist/**
+!dist/legacy-iife/
+coverage/
 test/*-results/
