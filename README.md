@@ -15,8 +15,6 @@ Install
 npm install int2words
 ```
 
-For legacy browsers:
-
 Usage
 --------------------------------------------------------------------------------
 ```js
@@ -39,7 +37,17 @@ try {
 }
 ```
 
-For legacy browsers:
+No Bundler Install and Usage
+--------------------------------------------------------------------------------
+To use in browsers directly and without bundlers.
+
+1. Save [`int2words.min.js`](https://github.com/dmkishi/int2words/blob/master/dist/legacy-iife/int2words.min.js) to your project.
+2. Add `<script src="int2words.min.js">` in your HTML file.
+3. The library is now available globally through the `int2words` object.
+
+```js
+console.log(int2words.int2en(321)); // "three hundred twenty-one"
+```
 
 Changelog
 --------------------------------------------------------------------------------
