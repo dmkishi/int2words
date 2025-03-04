@@ -43,3 +43,23 @@ presetButtons.forEach((button) => {
     }
   });
 });
+
+/**
+ * - Disable autofocus on touch devices as the virtual keyboard are not available
+ *   without selecting the <input> field anyway, rendering autofocus pointless.
+ *   Additionally, it interferes with the event listener below.
+ * - `setTimeout()` is necessary in order to override the content scroll
+ *   initiated by the iOS virtual keyboard.
+ */
+if (isTouchDevice) {
+  input.blur();
+  input.addEventListener('focus', () => {
+    if (window.innerWidth < 480) {
+      setTimeout(() => { input.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start',
+        inline: 'nearest',
+      })}, 0);
+    }
+  });
+}

@@ -69,14 +69,15 @@ ul {
 form {
   display: flex;
   flex-direction: column;
-  flex-grow: 1;
   gap: .75rem;
 
   // Provide sufficient space on mobile devices to enable scrolling up enough so
   // that the <input> field can be at the top of the screen.
-  margin-bottom: 100%;
+  min-height: 90dvh;
 
   @media (width > $small) {
+    flex-grow: 1;
+    min-height: auto;
     margin-bottom: 2rem;
   }
 
@@ -103,6 +104,7 @@ legend {
 
 input {
   border: none;
+  scroll-margin: 1.5em;
   background-color: var(--black);
   color: var(--pink);
 }
