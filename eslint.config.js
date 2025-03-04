@@ -46,6 +46,15 @@ export default tseslint.config(
           "allowRegExp": false
         }
       ],
+      "@typescript-eslint/no-base-to-string": [
+        'error',
+        { ignoredTypeNames: [
+          // Default values:
+          'Error', 'RegExp', 'URL', 'URLSearchParams',
+          // Custom values:
+          'CoercionError',
+        ] },
+      ],
     },
   },
   {
