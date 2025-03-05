@@ -19,7 +19,6 @@ const POWER = [
   ] as const;
 const defaultOptions = {
   throwError: false,
-  hyphenate: true,
 };
 
 /**

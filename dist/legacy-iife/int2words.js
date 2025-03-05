@@ -159,7 +159,8 @@ var int2words = (function (exports) {
     const TENS = ['', '', 'twenty', 'thirty', 'forty', 'fifty', 'sixty', 'seventy', 'eighty', 'ninety'];
     const POWER = ['', 'thousand', 'million', 'billion', 'trillion', 'quadrillion', 'quintillion', 'sextillion', 'septillion', 'octillion', 'nonillion'];
     const defaultOptions = {
-      throwError: false};
+      throwError: false
+    };
     /**
      * Convert integer into an English number phrase.
      *
