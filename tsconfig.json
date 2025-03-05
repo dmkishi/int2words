@@ -10,16 +10,20 @@
     "moduleDetection": "force",
     "isolatedModules": true,
     "verbatimModuleSyntax": true,
+
     // Enable strict type checking so you can catch bugs early
     "strict": true,
     "noUncheckedIndexedAccess": true,
     "noImplicitOverride": true,
+
     // Transpile our TypeScript code to JavaScript
     "module": "NodeNext",
     "outDir": "dist/esm",
     "sourceMap": true,
+
     // Emit type declarations (if you're building for a library)
     "declaration": true,
+
     // Include the DOM types (if your code runs in the DOM)
     "lib": [
       "es2022",
@@ -27,6 +31,7 @@
       "dom.iterable"
     ]
   },
+
   // Include the necessary files for your project
   "include": ["src"],
 }
