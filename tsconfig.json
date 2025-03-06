@@ -1,7 +1,8 @@
 // https://www.totaltypescript.com/tsconfig-cheat-sheet
+// https://tsconfig.guide
 {
   "compilerOptions": {
-    // Base Options recommended for all projects
+    // Base Options: recommended for all projects
     "esModuleInterop": true,
     "skipLibCheck": true,
     "target": "es2024",
@@ -11,12 +12,12 @@
     "isolatedModules": true,
     "verbatimModuleSyntax": true,
 
-    // Enable strict type checking so you can catch bugs early
+    // Strictness: enable strict type checking
     "strict": true,
     "noUncheckedIndexedAccess": true,
     "noImplicitOverride": true,
 
-    // Transpile our TypeScript code to JavaScript
+    // Transpile to JavaScript
     "module": "NodeNext",
     "outDir": "dist/esm",
     "sourceMap": true,
