@@ -22,13 +22,13 @@ import { int2en, int2ja } from 'int2words';
 
 console.log(int2en(321)); // "three hundred twenty-one"
 console.log(int2ja(321)); // "三百二十一"
-console.log(int2en(-1)) // Invalid input: ""
+console.log(int2en(-1)); // Invalid input: ""
 
 /**
  * Optionally throw an error.
  */
 try {
-  int2en(-1, { throwError: true })
+  int2en(-1, { throwError: true });
 } catch (error) {
   if (error instanceof CoercionError) {
     console.error(error); // "CoercionError: Expected a positive integer."
