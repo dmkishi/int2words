@@ -8,7 +8,7 @@
   "type": "module",
   "scripts": {
     "deploy": "npm run lint && npm run test && npm run build && npm --prefix example run lint && npm --prefix example run build:docs && sh .husky/pre-push",
-    "build": "npm run build:clean && npm run build:esm && npm run build:cjs && npm run build:legacy",
+    "build": "npm run build:clean && npm run build:esm && npm run build:cjs && npm run build:legacy && npm run test:build",
     "build:clean": "rm -rf ./dist/*",
     "build:esm": "tsc",
     "build:cjs": "esbuild dist/esm/index.js --bundle --platform=node --target=node18 --format=cjs --outfile=dist/cjs/index.cjs",
@@ -16,7 +16,8 @@
     "lint": "npm run lint:script && npm run lint:markdown",
     "lint:script": "eslint .",
     "lint:markdown": "markdownlint-cli2",
-    "test": "vitest run",
+    "test": "vitest run test --project src",
+    "test:build": "vitest run test --project dist",
     "test:coverage": "vitest run --coverage",
     "test:benchmark": "vitest bench --run",
     "prepare": "husky",

@@ -34,5 +34,20 @@ export default defineConfig({
       include: ['src'],
       reportsDirectory: 'test/coverage-results',
     },
+    workspace: [
+      {
+        test: {
+          name: 'src',
+          include: ['test/*.test.js'],
+        },
+      },
+      {
+        test: {
+          name: 'dist',
+          // Vitest ignores `dist` directories.
+          include: ['test/build/*.test.js'],
+        },
+      },
+    ],
   },
 });
