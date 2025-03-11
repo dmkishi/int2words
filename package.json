@@ -43,7 +43,10 @@
     "typescript-eslint": "^8.26.1",
     "vitest": "^3.0.8"
   },
-  "repository": "github:dmkishi/int2words",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dmkishi/int2words.git"
+  },
   "keywords": [
     "number",
     "translate",
