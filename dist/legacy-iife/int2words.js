@@ -1,4 +1,4 @@
-/*! int2words v2.0.0 <github:dmkishi/int2words> */
+/*! int2words v2.0.0 <https://github.com/dmkishi/int2words/> */
 var int2words = (function (exports) {
     'use strict';
 

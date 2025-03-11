@@ -8,7 +8,7 @@ import pkg from './package.json' with { type: 'json' };
 const name = pkg.name;
 const format = 'iife';
 const sourcemap = true;
-const banner = `/*! ${pkg.name} v${pkg.version} <${pkg.repository}> */`;
+const banner = `/*! ${pkg.name} v${pkg.version} <${pkg.homepage}> */`;
 
 export default {
   input: 'dist/esm/index.js',
