@@ -52,6 +52,8 @@
     "import": "./dist/esm/index.js",
     "legacy-iife": "./dist/legacy-iife/int2words.min.js"
   },
+	"module": "dist/esm/index.js",
+	"types": "dist/esm/index.d.ts",
   "unpkg": "dist/legacy-iife/int2words.min.js",
   "files": [
     "dist"
