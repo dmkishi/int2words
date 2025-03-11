@@ -1,7 +1,4 @@
 {
-  "recommendations": [
-    "davidanson.vscode-markdownlint"
-  ],
   "cSpell.words": [
     "corejs",
     "setext"
