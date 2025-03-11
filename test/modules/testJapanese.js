@@ -1,6 +1,11 @@
 import { describe, expect, test } from 'vitest'
+import testInputTypeCoercion from './util/testInputTypeCoercion';
+import testIsValidInput from './util/testIsValidInput';
 
 export default function testJapanese(func) {
+  testInputTypeCoercion(func);
+  testIsValidInput(func);
+
   describe('transforms', () => {
     test('single digits', () => {
       expect(func(0)).toBe('零');

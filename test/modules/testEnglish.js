@@ -1,6 +1,11 @@
-import { describe, expect, test } from 'vitest'
+import { describe, expect, test } from 'vitest';
+import testInputTypeCoercion from './util/testInputTypeCoercion';
+import testIsValidInput from './util/testIsValidInput';
 
 export default function testEnglish(func) {
+  testInputTypeCoercion(func);
+  testIsValidInput(func);
+
   describe('transforms', () => {
     test('ones through teens', () => {
       expect(func(0)).toBe('zero');
