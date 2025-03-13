@@ -5,7 +5,7 @@ export class CoercionError extends Error {
   }
 }
 
-export type Input = number | string;
+type Input = number | string;
 
 export default function isValidInput(input: Input, throwError: boolean): boolean {
   const notValid = makeNotValid(throwError);

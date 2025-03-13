@@ -1,4 +1,4 @@
-import isValidInput, { type Input } from './util/isValidInput.js';
+import isValidInput from './util/isValidInput.js';
 import { type Digit, toChunks } from './util/chunkDigits.js';
 
 type Quad = [Digit, Digit, Digit, Digit];
@@ -28,7 +28,7 @@ const defaultOptions = {
  * **If 千 directly precedes powers of 万 or above, 一 is prefixed before 千.
  * @see https://en.wikipedia.org/wiki/Japanese_numerals#Large_numbers
  */
-export default function int2ja(input: Input, options = defaultOptions): string {
+export default function int2ja(input: number | string, options = defaultOptions): string {
   if (!isValidInput(input, options.throwError)) return '';
   const integer = Number(input);
   const quads = toChunks<Quad>(integer, 4);

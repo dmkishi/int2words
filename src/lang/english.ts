@@ -1,4 +1,4 @@
-import isValidInput, { type Input } from './util/isValidInput.js';
+import isValidInput from './util/isValidInput.js';
 import { type Digit, toChunks } from './util/chunkDigits.js';
 
 type Triplet = [Digit, Digit, Digit];
@@ -31,7 +31,7 @@ const defaultOptions = {
  * `11`  | `eleven`
  * `21`  | `twenty-one`
  */
-export default function int2en(input: Input, options = defaultOptions): string {
+export default function int2en(input: number | string, options = defaultOptions): string {
   if (!isValidInput(input, options.throwError)) return '';
   const integer = Number(input);
   const triplets = toChunks<Triplet>(integer, 3);
