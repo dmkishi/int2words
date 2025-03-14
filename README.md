@@ -55,7 +55,7 @@ console.log(int2words.int2en(321)); // "three hundred twenty-one"
 
 Changelog
 --------------------------------------------------------------------------------
-### v2.0.0 (2025-)
+### v2.0.0 (2025-3-14)
 Change name and modernize.
 
 ### v1.2.7 (2016-5-4)
