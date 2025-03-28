@@ -41,7 +41,7 @@ try {
 const { int2en, int2jw } = require('int2words');
 ```
 
-No Bundler Install and Usage
+No-Bundler Install and Usage
 --------------------------------------------------------------------------------
 To use in browsers directly and without bundlers.
 
