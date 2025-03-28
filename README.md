@@ -46,7 +46,7 @@ No-Bundler Install and Usage
 To use in browsers directly and without bundlers.
 
 - Save [`int2words.min.js`](https://github.com/dmkishi/int2words/blob/master/dist/legacy-iife/int2words.min.js) to your project and add `<script src="PATH/TO/int2words.min.js">` in your HTML file.
-- Or add `<script src="https://unpkg.com/int2words@2.0.0/dist/legacy-iife/int2words.min.js">` in your HTML file.
+- Or add `<script src="https://unpkg.com/int2words@2.0.1/dist/legacy-iife/int2words.min.js">` in your HTML file.
 
 The library is now available globally through the `int2words` object.
 
@@ -56,6 +56,9 @@ console.log(int2words.int2en(321)); // "three hundred twenty-one"
 
 Changelog
 --------------------------------------------------------------------------------
+### v2.0.1 (2025-3-28)
+Update README, deps, etc.
+
 ### v2.0.0 (2025-3-14)
 Change name and modernize.
 
