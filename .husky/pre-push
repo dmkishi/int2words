@@ -1,6 +1,9 @@
 #!/usr/bin/env bash
 set -e
 
+################################################################################
+# Check version numbers
+################################################################################
 # Get the current Git tag, if any.
 GIT_TAG=$(git describe --tags --exact-match 2>/dev/null || echo '[None]')
 
@@ -19,9 +22,17 @@ if [ "$GIT_TAG" != "$PACKAGE" ] || [ "$PACKAGE" != "$README" ]; then
   exit 1
 fi
 
+################################################################################
+# Check changelog date
+################################################################################
 if grep -qE "^### ${README} \([0-9]{4}-[0-9]{1,2}-[0-9]{1,2}\)" README.md; then
   :
 else
   echo 'README.md: Missing or invalid date in the Changelog.'
   exit 1
 fi
+
+################################################################################
+# TO TEST THIS HOOK: uncomment statement below
+################################################################################
+# exit 1
